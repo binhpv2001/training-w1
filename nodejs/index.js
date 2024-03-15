@@ -1,4 +1,5 @@
 
+ //todo : đặt url hay cái gì đó tương tự nghe hay hơn đấy
 const host = 'https://jsonplaceholder.typicode.com'
 
 //2
@@ -34,13 +35,14 @@ const handleData = ( users, posts, comments ) => {
       const post = posts.find( ( post ) => post.id === comment.postId );
       return post && post.userId === user.id;
     } ).map( comment => ( {
+      // anh không nghĩ là cần map lại chỗ này đâu =)) cho return thằng cũng đc 
       id: comment.id,
       postId: comment.postId,
       name: comment.name,
       body: comment.body
     } ) );
 
-
+    // todo : dùng rest operator
     return {
       id: user.id,
       name: user.name,
@@ -77,6 +79,7 @@ const filterUserMoreThan3Comments = async () => {
 //5
 const countCommentAndPost = ( users ) => {
   return users.map( user => ( {
+    // chỗ này cùng nên dùng rest operator
     id: user.id,
     name: user.name,
     username: user.username,
